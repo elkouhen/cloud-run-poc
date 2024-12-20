@@ -7,16 +7,16 @@ steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
-           'europe-west1-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/myimage:${SHORT_SHA}', '.']
+           'europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}', '.']
 
   # Docker push to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push',  'europe-west1-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/myimage:${SHORT_SHA}']
+    args: ['push',  'europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}']
 
   # Deploy to Cloud Run
   - name: google/cloud-sdk
     args: ['gcloud', 'run', 'deploy', 'cloud-run-poc-${SHORT_SHA}', 
-           '--image=europe-west1-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/myimage:${SHORT_SHA}', 
+           '--image=europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}',
            '--region', 'europe-west1', '--platform', 'managed', 
            '--allow-unauthenticated']
 
@@ -28,4 +28,4 @@ artifacts:
       - ${SHORT_SHA}_test_log.xml
 # Store images in Google Artifact Registry
 images:
-  - europe-west1-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/myimage:${SHORT_SHA}
+  - europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}
