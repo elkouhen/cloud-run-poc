@@ -9,7 +9,7 @@ spec:
         commit: defaultShaValue # from-param: ${git-sha}
     spec:
       containers:
-      - image: image1
+      - image: myimage
       - env:
         - name: var
           value: value1
