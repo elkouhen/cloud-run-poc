@@ -5,16 +5,16 @@ metadata:
 description: main application pipeline
 serialPipeline:
   stages:
-  - targetId: run-qsdev
+  - targetId: env-dev
     profiles: [dev]
-  - targetId: run-qsprod
+  - targetId: env-prod
     profiles: [prod]
 ---
 
 apiVersion: deploy.cloud.google.com/v1
 kind: Target
 metadata:
-  name: run-qsdev
+  name: env-dev
 description: Cloud Run development service
 run:
   location: projects/helloworld-398318/locations/europe-west1
@@ -23,7 +23,7 @@ run:
 apiVersion: deploy.cloud.google.com/v1
 kind: Target
 metadata:
-  name: run-qsprod
+  name: env-prod
 description: Cloud Run production service
 run:
   location: projects/helloworld-398318/locations/europe-west1
