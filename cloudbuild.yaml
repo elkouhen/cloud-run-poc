@@ -24,7 +24,3 @@ steps:
         '--annotations', 'commitId=${REVISION_ID}',
         '--images', 'myimage=europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage:${COMMIT_SHA}'
       ]
-
-# Store images in Google Artifact Registry
-images:
-  - europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}
