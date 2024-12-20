@@ -17,15 +17,8 @@ steps:
   - name: google/cloud-sdk
     args: ['gcloud', 'run', 'deploy', 'cloud-run-poc-${SHORT_SHA}', 
            '--image=europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}',
-           '--region', 'europe-west1', '--platform', 'managed', 
-           '--allow-unauthenticated']
+           '--region', 'europe-west1', '--platform', 'managed' ]
 
-# Save test logs to Google Cloud Storage
-artifacts:
-  objects:
-    location: gs://${_BUCKET_NAME}/
-    paths:
-      - ${SHORT_SHA}_test_log.xml
 # Store images in Google Artifact Registry
 images:
   - europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}
