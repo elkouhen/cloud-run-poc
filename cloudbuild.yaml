@@ -24,7 +24,7 @@ steps:
         "--delivery-pipeline", "cloud-run-poc-pipeline",
         "--region", "europe-west1",
         "--annotations", "commitId=${REVISION_ID}",
-        "--images", "image1=europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${COMMIT_SHA}"
+        "--images", "myimage=europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${COMMIT_SHA}"
       ]
 
 # Store images in Google Artifact Registry

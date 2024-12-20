@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-      - image: image1
+      - image: myimage
       - env:
         - name: var
           value: value2
