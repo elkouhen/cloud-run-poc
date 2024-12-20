@@ -9,7 +9,7 @@ spec:
         commit: defaultShaValue # from-param: ${git-sha}
     spec:
       containers:
-      - image: myimage
+      - image: europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage
       - env:
         - name: var
           value: value1
