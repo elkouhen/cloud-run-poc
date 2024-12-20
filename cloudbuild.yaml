@@ -2,34 +2,27 @@ steps:
   # Install dependencies
   - name: python
     entrypoint: pip
-    args: ["install", "-r", "requirements.txt", "--user"]
+    args: ['install', '-r', 'requirements.txt', '--user']
 
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
            'europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}', '.']
 
-# Docker push to Google Artifact Registry
+  # Docker push to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push',  'europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}']
-
-
-  # Deploy to Cloud Run
-  - name: google/cloud-sdk
-    args: ['gcloud', 'run', 'deploy', 'cloud-run-poc',
-           '--image=europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-poc/myimage:${SHORT_SHA}',
-           '--region', 'europe-west1', '--platform', 'managed' ]
 
   # Create release in Google Cloud Deploy
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
     args:
       [
-        "deploy", "releases", "create", "rel-${SHORT_SHA}",
-        "--delivery-pipeline", "cloud-run-poc-pipeline",
-        "--region", "europe-west1",
-        "--annotations", "commitId=${REVISION_ID}",
-        "--images", "myimage=europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage:${COMMIT_SHA}"
+        'deploy', 'releases', 'create', 'rel-${SHORT_SHA}',
+        '--delivery-pipeline', 'cloud-run-poc-pipeline',
+        '--region', 'europe-west1',
+        '--annotations', 'commitId=${REVISION_ID}',
+        '--images', 'myimage=europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage:${COMMIT_SHA}'
       ]
 
 # Store images in Google Artifact Registry
