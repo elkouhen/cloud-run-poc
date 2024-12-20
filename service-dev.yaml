@@ -6,6 +6,3 @@ spec:
     spec:
       containers:
       - image: myimage
-      - env:
-        - name: var
-          value: value1
