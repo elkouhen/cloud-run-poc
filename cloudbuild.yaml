@@ -22,5 +22,5 @@ steps:
         '--delivery-pipeline', 'cloud-run-poc-pipeline',
         '--region', 'europe-west1',
         '--annotations', 'commitId=${REVISION_ID}',
-        '--images', 'myimage=europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage:${COMMIT_SHA}'
+        '--images', 'myimage=europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage:${SHORT_SHA}'
       ]
