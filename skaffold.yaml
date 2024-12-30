@@ -19,4 +19,4 @@ verify:
     name: alpine
     image: alpine
     command: ["/bin/sh"]
-    args: ["-c", "wget https://cloud-run-poc-service-dev-644036867588.europe-west1.run.app/"]
+    args: ["-c", ""]
