@@ -16,8 +16,8 @@ deploy:
 verify:
 - name: verify-endpoint-test
   container:
-    name: alpine
-    image: alpine
+    name: ubuntu
+    image: google/cloud-sdk:stable
     command: ["/bin/sh"]
     args: ["-c", "gsutil cp gs://europe-west1.deploy-artifacts.helloworld-398318.appspot.com/verify.sh ./verify.sh
     ; sh ./verify.sh"]
