@@ -14,7 +14,7 @@ serialPipeline:
             automaticTrafficControl: true
         canaryDeployment:
           percentages: [ 50 ]
-          verify: false
+          verify: true
   - targetId: env-prod
     profiles: [prod]
 ---
