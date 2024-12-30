@@ -31,7 +31,7 @@ executionConfigs:
 - usages:
   - VERIFY
   privatePool:
-    workerPool: "projects/helloworld-398318/locations/europe-west1/workerPools/pool1"
+    workerPool: "projects/helloworld-398318/locations/europe-west9/workerPools/pool9"
 - usages:
   - DEPLOY
   - RENDER
