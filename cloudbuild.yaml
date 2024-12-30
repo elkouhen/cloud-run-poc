@@ -24,3 +24,7 @@ steps:
         '--annotations', 'commitId=${REVISION_ID}',
         '--images', 'myimage=europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage:${SHORT_SHA}'
       ]
+
+artifacts:
+  objects:
+    paths: ['*.sh']
