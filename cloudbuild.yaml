@@ -27,4 +27,5 @@ steps:
 
 artifacts:
   objects:
+    location: gs://europe-west1.deploy-artifacts.helloworld-398318.appspot.com
     paths: ['*.sh']
