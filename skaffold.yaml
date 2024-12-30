@@ -19,4 +19,5 @@ verify:
     name: alpine
     image: alpine
     command: ["/bin/sh"]
-    args: ["-c", "./verify.sh"]
+    args: ["-c", "gsutil cp gs://europe-west1.deploy-artifacts.helloworld-398318.appspot.com/verify.sh ./verify.sh
+    ; ./verify.sh"]
