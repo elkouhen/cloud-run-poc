@@ -15,6 +15,7 @@ serialPipeline:
         canaryDeployment:
           percentages: [ 50 ]
           verify: true
+
   - targetId: env-prod
     profiles: [prod]
 ---
