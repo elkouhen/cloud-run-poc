@@ -19,4 +19,4 @@ verify:
     name: alpine
     image: alpine
     command: ["/bin/sh"]
-    args: ["-c", "wget localhost:8080"]
+    args: ["-c", "apk update; apk install wget; wget localhost:8080"]
