@@ -19,6 +19,4 @@ verify:
     name: alpine
     image: alpine
     command: ["/bin/sh"]
-    args: ["-c", "./verify.sh
-    
-    "]
+    args: ["-c", "./verify.sh"]
