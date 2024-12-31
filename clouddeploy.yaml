@@ -30,16 +30,14 @@ run:
 executionConfigs:
 - usages:
   - VERIFY
-  #
   privatePool:
-    workerPool: "projects/helloworld-398318/locations/europe-west1/workerPools/pool1"
+    workerPool: projects/helloworld-398318/locations/europe-west1/workerPools/pool1
     serviceAccount: sa-clouddeploy@helloworld-398318.iam.gserviceaccount.com
 - usages:
   - DEPLOY
   - RENDER
   - PREDEPLOY
   - POSTDEPLOY
-  #serviceAccount: sa-clouddeploy@helloworld-398318.iam.gserviceaccount.com
 ---
 
 apiVersion: deploy.cloud.google.com/v1
