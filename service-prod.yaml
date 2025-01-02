@@ -6,4 +6,4 @@ spec:
   template:
     spec:
       containers:
-      - image: myimage
+      - image: europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage

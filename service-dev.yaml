@@ -2,8 +2,11 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: cloud-run-poc-service-dev
+  annotations:
+    run.googleapis.com/ingress: internal
+    run.googleapis.com/ingress-status: internal
 spec:
   template:
     spec:
       containers:
-      - image: myimage
+      - image: europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage

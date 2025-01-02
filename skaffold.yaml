@@ -2,6 +2,19 @@ apiVersion: skaffold/v4beta7
 kind: Config
 metadata:
   name: cloud-run-poc-skaffold
+
+
+build:
+  local:
+    push: true
+
+  platforms: ["linux"]
+
+  artifacts:
+    - image: myimage
+      docker:
+        dockerfile: ./Dockerfile
+
 profiles:
 - name: dev
   manifests:
@@ -11,8 +24,12 @@ profiles:
   manifests:
     rawYaml:
     - service-prod.yaml
+
 deploy:
-  cloudrun: {}
+  cloudrun:
+    projectid: helloworld-398318
+    region: europe-west1
+
 verify:
 - name: verify-endpoint-test
   container:
