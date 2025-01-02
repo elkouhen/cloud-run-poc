@@ -6,7 +6,7 @@ metadata:
     run.googleapis.com/ingress: internal
     run.googleapis.com/ingress-status: internal
     run.googleapis.com/network-interfaces: '[{"network":"projects/helloworld-398318/global/networks/defaultvpc","subnetwork":"projects/helloworld-398318/regions/europe-west9/subnetworks/europe-west1"}]'
-
+    run.googleapis.com/vpc-access-egress: private-ranges-only
 spec:
   template:
     spec:

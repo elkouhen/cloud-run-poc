@@ -1,5 +1,7 @@
 #!/bin/sh
 
+printenv
+
 apt update
 apt install jq curl -y
 
