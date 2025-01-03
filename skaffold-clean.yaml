@@ -1,0 +1,25 @@
+apiVersion: skaffold/v4beta7
+kind: Config
+metadata:
+  name: cloud-run-poc-skaffold
+
+profiles:
+- name: dev
+  manifests:
+    rawYaml:
+    - service-dev.yaml
+- name: prod
+  manifests:
+    rawYaml:
+    - service-prod.yaml
+
+deploy:
+  cloudrun: {}
+
+verify:
+- name: verify-endpoint-test
+  container:
+    name: ubuntu
+    image: google/cloud-sdk:stable
+    command: ["/bin/sh"]
+    args: ["-c", "echo hello"]
