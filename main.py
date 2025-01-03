@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/hello")
 def hello_world():
-    return ("blue !")
+    return ("green !")
 
 
 if __name__ == "__main__":
