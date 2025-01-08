@@ -2,8 +2,16 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: cloud-run-poc-service-prod
+  annotations:
+    run.googleapis.com/launch-stage: BETA
+
 spec:
   template:
+    metadata:
+      annotations:
+        run.googleapis.com/execution-environment: gen2
+        run.googleapis.com/vpc-access-egress: private-ranges-only
+        run.googleapis.com/network-interfaces: '[{"network":"projects/helloworld-398318/global/networks/defaultvpc","subnetwork":"projects/helloworld-398318/regions/europe-west1/subnetworks/europe-west1"}]'
     spec:
       containers:
-      - image: europe-west1-docker.pkg.dev/helloworld-398318/cloud-run-poc/myimage
+      - image: myimage

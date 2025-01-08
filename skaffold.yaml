@@ -8,7 +8,7 @@ build:
   local:
     push: true
 
-  platforms: ["linux"]
+  platforms: ["linux/amd64"]
 
   artifacts:
     - image: myimage
